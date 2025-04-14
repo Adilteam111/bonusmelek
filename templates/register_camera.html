@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register with Camera</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Register with Camera</h2>
+        <video id="video" width="640" height="480" autoplay></video>
+        <button id="capture" class="btn btn-primary mt-3">Capture Face</button>
+        <br><br>
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+    <script>
+        // Camera functionality here
+        const video = document.getElementById('video');
+        const captureButton = document.getElementById('capture');
+        
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                video.srcObject = stream;
+            })
+            .catch(function (err) {
+                console.log("An error occurred: " + err);
+            });
+        }
+
+        captureButton.addEventListener('click', function() {
+            // Capture logic will be added here (face encoding)
+            alert('Capture logic goes here!');
+        });
+    </script>
+</body>
+</html>

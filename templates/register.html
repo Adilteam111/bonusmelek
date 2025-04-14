@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Qeydiyyat{% endblock %}
+
+{% block content %}
+<h2>Qeydiyyat Forması</h2>
+<form method="POST">
+    <label for="name">Ad:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <button type="submit">Qeydiyyat</button>
+</form>
+{% endblock %}
